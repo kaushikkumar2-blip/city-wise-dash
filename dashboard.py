@@ -260,7 +260,11 @@ def style_overview(df, extra_fmt=None):
 # ═════════════════════════════════════════════════════════════════════════════
 #  SIDEBAR
 # ═════════════════════════════════════════════════════════════════════════════
+<<<<<<< HEAD
 data_path = str(_SCRIPT_DIR / "362c62a8adb9d17ecb5a6c9d33385822.csv")
+=======
+data_path = "362c62a8adb9d17ecb5a6c9d33385822.csv"
+>>>>>>> f4458233601b269c63e14fff73a8f6754f8039f8
 
 with st.sidebar:
     st.markdown("## 📦 Seller × City Dashboard")
@@ -341,8 +345,16 @@ if page == "Upload Data":
             try:
                 new_df.to_csv(data_path, mode="a", header=False, index=False)
                 st.cache_data.clear()
+<<<<<<< HEAD
                 st.toast(f"Successfully appended {len(new_df):,} rows!", icon="✅")
                 st.rerun()
+=======
+                st.success(
+                    f"Successfully appended **{len(new_df):,}** rows to `{data_path}`. "
+                    "Switch to the Dashboard page or hit Refresh to see updated data."
+                )
+                st.balloons()
+>>>>>>> f4458233601b269c63e14fff73a8f6754f8039f8
             except Exception as exc:
                 st.error(f"Failed to write to `{data_path}`: {exc}")
     else:
