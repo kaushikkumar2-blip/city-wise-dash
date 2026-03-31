@@ -1,5 +1,5 @@
 [build]
-buildCommand = "git lfs install && git lfs pull"
+buildCommand = "apt-get update && apt-get install -y git-lfs && git lfs install && git lfs pull"
 
 [deploy]
 startCommand = "streamlit run dashboard.py --server.port $PORT --server.address 0.0.0.0 --server.headless true"
