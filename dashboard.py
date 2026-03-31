@@ -22,6 +22,10 @@ import numpy as np
 from datetime import datetime
 
 _SCRIPT_DIR = pathlib.Path(__file__).resolve().parent
+from streamlit_autorefresh import st_autorefresh
+
+# Auto-refresh every 10 minutes (600000 ms) to keep session alive
+st_autorefresh(interval=600000, key="keepalive")
 
 # ═════════════════════════════════════════════════════════════════════════════
 #  PAGE CONFIG
