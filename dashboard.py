@@ -22,10 +22,10 @@ import numpy as np
 from datetime import datetime
 
 _SCRIPT_DIR = pathlib.Path(__file__).resolve().parent
-from streamlit_autorefresh import st_autorefresh
+# from streamlit_autorefresh import st_autorefresh
 
-# Auto-refresh every 10 minutes (600000 ms) to keep session alive
-st_autorefresh(interval=600000, key="keepalive")
+# # Auto-refresh every 10 minutes (600000 ms) to keep session alive
+# st_autorefresh(interval=600000, key="keepalive")
 
 # ═════════════════════════════════════════════════════════════════════════════
 #  PAGE CONFIG
@@ -102,7 +102,7 @@ AGG_COLS = [
 # ═════════════════════════════════════════════════════════════════════════════
 #  DATA LOADING
 # ═════════════════════════════════════════════════════════════════════════════
-@st.cache_data(ttl=600, show_spinner="Loading CSV data …")
+@st.cache_data(ttl=600, max_entries=1, show_spinner="Loading CSV data …")
 def load_data(path: str) -> pd.DataFrame:
     df = pd.read_csv(path, low_memory=False)
     for col in NUMERIC_COLS:
