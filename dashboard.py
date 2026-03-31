@@ -265,6 +265,10 @@ def style_overview(df, extra_fmt=None):
 #  SIDEBAR
 # ═════════════════════════════════════════════════════════════════════════════
 data_path = str(_SCRIPT_DIR / "362c62a8adb9d17ecb5a6c9d33385822.csv")
+import os
+st.write(f"File size: {os.path.getsize(data_path)} bytes")
+st.write(f"First 200 chars: {open(data_path).read(200)}")
+st.stop()
 
 with st.sidebar:
     st.markdown("## 📦 Seller × City Dashboard")
